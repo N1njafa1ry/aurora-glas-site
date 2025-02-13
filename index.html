@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora Glas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #e0e0e0;
+            overflow-x: hidden; overflow-y: auto;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            border-radius: 0;
+        }
+        .logo {
+            max-width: 100px;
+        }
+              nav {
+display: flex; justify-content: flex-end; padding-right: 15%;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #e0e0e0;
+            font-weight: 600;
+            padding: 10px 15px;
+            transition: background 0.3s ease;
+        }
+        nav ul li a:hover {
+            background: #60c2b1;
+            color: white;
+            border-radius: 5px;
+        }
+        .hero {
+            background: url('https://uploads.staticjw.com/le/ledklot/pxl_20250201_122105337.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+        .btn {
+            padding: 15px 30px;
+            background-color: #60c2b1;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #4fa89a;
+        }
+        .content-section {
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 40px;
+            text-align: center;
+        }
+        .product-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+        .product-gallery img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .product-gallery img:hover {
+            transform: scale(1.05); transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            display: flex;
+            flex-direction: column;
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 80%;
+            align-items: center;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .modal-text {
+            text-align: left;
+        }
+        .close, .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .close { top: 20px; right: 40px; font-size: 40px; }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            text-align: left;
+        }
+        .about-content img {
+            max-width: 300px;
+            border-radius: 10px;
+        }
+        @media (max-width: 768px) {
+        .modal-content {
+            flex-direction: column;
+            text-align: center;
+        }
+        .modal img {
+            max-width: 100%;
+            margin-bottom: 15px;
+        }
+        .modal-text {
+            text-align: center;
+        }
+    }
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #1a1a1a;
+            color: white;
+            margin-top: 50px;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://uploads.staticjw.com/le/ledklot/auroraglaswhite001.png" alt="Aurora Glas Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#home">Hem</a></li>
+                <li><a href="#about">Om Oss</a></li>
+                <li><a href="#products">Produkter</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Hantverk i Glas - Inspirerat av Norrskenet</h1>
+        <a href="#products" class="btn">Se våra produkter</a>
+    </section>
+    
+    <section id="about" class="content-section">
+        <h2 style="opacity: 0;">Om Oss</h2>
+        <h2 style="opacity: 0;">Om Oss</h2>
+        <h2>Om Oss</h2>
+        <div class="about-content">
+            <img src="https://uploads.staticjw.com/le/ledklot/alva002.jpg" alt="Älva Täckenström">
+            <img src="https://uploads.staticjw.com/le/ledklot/rikard001.jpg" alt="Lars-Rikard Dimberg">
+        </div>
+        <p>Välkommen till Aurora Glas – där konst, hantverk och hållbarhet möts i en värld av skimrande ljus.</p>
+        <p>Vi är Älva Täckenström och Lars-Rikard Dimberg, två kreativa själar som har lämnat storstadens kaos för att skapa något äkta och tidlöst i hjärtat av Norrland. Med en passion för hantverk och en djup respekt för materialets historia, ger vi nytt liv åt återvunnet kristallglas genom att smälta samman fragment och forma dem till unika konstverk, smycken och bruksföremål.</p>
+        <p>Vårt arbete kombinerar traditionella tekniker med moderna influenser, och varje skapelse är ett uttryck för den råa skönheten i glasets magi. Från handblåsta skålar till detaljerade smycken – varje föremål bär på en historia och ett ljus från norrskenets eviga dans.</p>
+        <p>Hos Aurora Glas handlar det inte bara om hantverk – det handlar om att skapa en hållbar framtid, där varje bit glas får en ny chans att lysa.</p>
+        <p><em>✨ Hantverk med själ. Skapat för att bestå. ✨</em></p>
+    </section>
+    
+    <section id="products" class="content-section">
+        <h1 style="opacity: 0;">Våra Produkter</h1>
+        <h1 style="opacity: 0;">Våra Produkter</h1>
+        <h1>Våra Produkter</h1>
+        <p>Klicka på en produkt för att se mer information.</p>
+        <div class="product-gallery">
+            <img src="https://uploads.staticjw.com/le/ledklot/vasnorrsken.jpg" alt="Vas Norrsken" onclick="openModal(this)">
+            <img src="https://uploads.staticjw.com/le/ledklot/tomtevit.jpg" alt="Tomte Vit" onclick="openModal(this)">
+            <img src="https://uploads.staticjw.com/le/ledklot/tomterod.jpg" alt="Tomte Röd" onclick="openModal(this)">
+            <img src="https://uploads.staticjw.com/le/ledklot/snogubbeangel.jpg" alt="Snögubbe Ängel" onclick="openModal(this)">
+            <img src="https://uploads.staticjw.com/le/ledklot/optikklot.jpg" alt="Optik Klot" onclick="openModal(this)">
+            <img src="https://uploads.staticjw.com/le/ledklot/oljelampa.jpg" alt="Oljelampa" onclick="openModal(this)">
+            <img src="https://uploads.staticjw.com/le/ledklot/ledklotmiljo.jpg" alt="LED Klot Miljö" onclick="openModal(this)">
+        </div>
+    </section>
+    
+    <div id="productModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Produktbild">
+            <div class="modal-text">
+                <h2 id="modalTitle">Produktnamn</h2>
+                <p id="modalDescription">Beskrivning av produkten kommer här.</p>
+            </div>
+        </div>
+        <button class="next" onclick="changeImage(1)">&#10095;</button>
+    </div>
+    
+    <script>
+        let currentIndex = 0;
+        const images = Array.from(document.querySelectorAll('.product-gallery img'));
+
+        function openModal(imgElement) {
+            currentIndex = images.indexOf(imgElement);
+            
+            updateModal();
+            document.getElementById('productModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+
+        function changeImage(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = images.length - 1;
+            if (currentIndex >= images.length) currentIndex = 0;
+            updateModal();
+        }
+
+        function updateModal() {
+            document.getElementById('modalImage').src = images[currentIndex].src;
+            document.getElementById('modalTitle').innerText = images[currentIndex].alt;
+            document.getElementById('modalDescription').innerText = 'Beskrivning av ' + images[currentIndex].alt.toLowerCase() + ' kommer här.';
+        }
+    </script>
+    
+    <section id="contact" class="content-section contact">
+        <h2>Kontakt & Beställning</h2>
+        <p>För att beställa eller få mer information, kontakta oss via e-post:</p>
+        <p><strong><a href="mailto:auroraglas.lappland@gmail.com">auroraglas.lappland@gmail.com</a></strong></p>
+        <p>Följ oss på sociala medier:</p>
+        <p>
+            <a href="https://www.instagram.com/auroraglas.lappland" target="_blank">Instagram</a> |
+            <a href="https://www.facebook.com/auroraglas" target="_blank">Facebook</a> |
+            <a href="https://www.twitch.tv/tardisancraft" target="_blank">Twitch</a>
+        </p>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Aurora Glas - Handgjord Glaskonst från Lappland</p>
+    </footer>
+</body>
+</html>
