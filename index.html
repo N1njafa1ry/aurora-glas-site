@@ -30,6 +30,15 @@
         .logo {
             max-width: 100px;
         }
+        .menu-toggle {
+            display: none;
+            font-size: 30px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-right: -71%;
+        }
               nav {
 display: flex; justify-content: flex-end; padding-right: 15%;
         }
@@ -160,6 +169,26 @@ display: flex; justify-content: flex-end; padding-right: 15%;
             border-radius: 10px;
         }
         @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 5%;
+                width: 200px;
+                text-align: right;
+                padding: 10px;
+                border-radius: 10px;
+                margin-right: 9%;
+                margin-top: 10%;
+                background-color: #1a1a1a00;
+            }
+            nav ul.show {
+                display: flex;
+            }
         .modal-content {
             flex-direction: column;
             text-align: center;
@@ -171,7 +200,28 @@ display: flex; justify-content: flex-end; padding-right: 15%;
         .modal-text {
             text-align: center;
         }
-    }
+            .menu-toggle {
+                display: block;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 5%;
+                background: rgba(0, 0, 0, 0.9);
+                width: 200px;
+                text-align: right;
+                padding: 10px;
+                border-radius: 10px;
+            }
+            nav ul.show {
+                display: flex;
+            }
+            .hero h1 {
+                font-size: 2em;
+            }
+        }
         footer {
             text-align: center;
             padding: 30px;
@@ -185,6 +235,7 @@ display: flex; justify-content: flex-end; padding-right: 15%;
 <body>
     <header>
         <img src="https://uploads.staticjw.com/le/ledklot/auroraglaswhite001.png" alt="Aurora Glas Logo" class="logo">
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         <nav>
             <ul>
                 <li><a href="#home">Hem</a></li>
@@ -270,6 +321,10 @@ display: flex; justify-content: flex-end; padding-right: 15%;
             document.getElementById('modalImage').src = images[currentIndex].src;
             document.getElementById('modalTitle').innerText = images[currentIndex].alt;
             document.getElementById('modalDescription').innerText = 'Beskrivning av ' + images[currentIndex].alt.toLowerCase() + ' kommer här.';
+        }
+        function toggleMenu() {
+            const menu = document.querySelector('nav ul');
+            menu.classList.toggle('show');
         }
     </script>
     
